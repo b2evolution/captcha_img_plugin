@@ -43,8 +43,6 @@
  *
  * @author blueyed: Daniel HAHLER
  * @author Ben Franske, http://ben.franske.com
- *
- * @version $Id: _captcha_img.plugin.php 1196 2010-03-29 18:29:50Z blueyed $
  */
 if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.' );
 
@@ -63,7 +61,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class captcha_img_plugin extends Plugin
 {
-	var $version = '2.0.3';
+	var $version = '2.0.4';
 	var $group = 'antispam';
 
 	/**
@@ -93,7 +91,7 @@ class captcha_img_plugin extends Plugin
 	}
 
 
-	function GetDefaultSettings()
+	function GetDefaultSettings( & $params )
 	{
 		global $Settings;
 
@@ -426,7 +424,7 @@ class captcha_img_plugin extends Plugin
 	 * @param array Associative list of parameters.
 	 *    - 'prefix': key/prefix to use for the form params (string, OPTIONALLY)
 	 */
-	function CaptchaValidatedCleanup( $params = array() )
+	function CaptchaValidatedCleanup(  & $params )
 	{
 		global $DB, $Session;
 
@@ -644,7 +642,7 @@ class captcha_img_plugin extends Plugin
 	/**
 	 * Cleanup after a comment has been inserted.
 	 */
-	function AfterCommentFormInsert()
+	function AfterCommentFormInsert( & $params )
 	{
 		$this->CaptchaValidatedCleanup();
 	}
@@ -714,7 +712,7 @@ class captcha_img_plugin extends Plugin
 	/**
 	 * Cleanup.
 	 */
-	function MessageFormSentCleanup()
+	function MessageFormSentCleanup( & $params )
 	{
 		$this->CaptchaValidatedCleanup();
 	}
