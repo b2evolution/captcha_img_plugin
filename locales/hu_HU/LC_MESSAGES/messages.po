@@ -1,0 +1,266 @@
+# Message strings for b2evolution's captcha image plugin (hungarian).
+# Copyright (C) 2007 Francois PLANQUE
+# This file is distributed under the same license as the b2evolution package.
+# Imre Balla <ballaimre@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: captcha_img_plugin 2.0\n"
+"Report-Msgid-Bugs-To: http://daniel.hahler.de/\n"
+"POT-Creation-Date: 2007-09-10 22:20+0200\n"
+"PO-Revision-Date: 2007-09-11 09:01+0100\n"
+"Last-Translator: Imre Balla <ballaimre@gmail.com>\n"
+"Language-Team: Imre Balla <ballaimre@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: iso-8859-2\n"
+
+#: ..\..\..\_captcha_img.plugin.php:84
+msgid "Captcha images"
+msgstr "Captcha képek"
+
+#: ..\..\..\_captcha_img.plugin.php:85
+msgid "Use generated images to tell humans and robots apart."
+msgstr "Generált képek használata, hogy az embereket és a robotokat meg tudjuk különböztetni."
+
+#: ..\..\..\_captcha_img.plugin.php:102
+msgid "Protect trackback URLs"
+msgstr "Trackback URL-ek védelme"
+
+#: ..\..\..\_captcha_img.plugin.php:109
+msgid "Fonts folder"
+msgstr "Betûkészlet könyvtár"
+
+#: ..\..\..\_captcha_img.plugin.php:111
+msgid "Path to a folder with TrueType fonts for captcha text, relative to the plugin file."
+msgstr "A TrueType betûkészletek könyvtára, relatív a plugin állományhoz képest."
+
+#: ..\..\..\_captcha_img.plugin.php:115
+msgid "Timeout for keys"
+msgstr "A kulcsok lejárata"
+
+#: ..\..\..\_captcha_img.plugin.php:117
+msgid "in minutes. When does the generated captcha expire?"
+msgstr "perc. Ennyi idõ után a captcha lejár."
+
+#: ..\..\..\_captcha_img.plugin.php:122
+msgid "Websafe colors"
+msgstr "Biztonságos web-színek"
+
+#: ..\..\..\_captcha_img.plugin.php:124
+msgid "Use web safe colors (only 216 colors)?"
+msgstr "Biztonságos web-színek használata (csak 216 szín)."
+
+#: ..\..\..\_captcha_img.plugin.php:128
+msgid "Noise"
+msgstr "Zaj"
+
+#: ..\..\..\_captcha_img.plugin.php:130
+msgid "Use background noise characters instead of a grid."
+msgstr "A rács helyett zaj használata a háttérben."
+
+#: ..\..\..\_captcha_img.plugin.php:134
+msgid "Noise factor"
+msgstr "Zajfaktor"
+
+#: ..\..\..\_captcha_img.plugin.php:136
+msgid "Noise multiplier (number of characters gets multipled by this to define noise)."
+msgstr "Zaj szorzó (a karakterek száma lesz megszorozva ezzel, hogy a zaj mértékét kiszámolja)"
+
+#: ..\..\..\_captcha_img.plugin.php:141
+msgid "Min chars"
+msgstr "Minimum karakterszám"
+
+#: ..\..\..\_captcha_img.plugin.php:143
+msgid "The minimum number of characters to use."
+msgstr "A minimum karakterszám, amit használni szeretnél."
+
+#: ..\..\..\_captcha_img.plugin.php:148
+msgid "Max chars"
+msgstr "Maximum karakterszám"
+
+#: ..\..\..\_captcha_img.plugin.php:150
+msgid "The maximum number of characters to use."
+msgstr "Maximum karakterszám, amit használni szeretnél."
+
+#: ..\..\..\_captcha_img.plugin.php:155
+msgid "Min font size"
+msgstr "Minimum betûméret"
+
+#: ..\..\..\_captcha_img.plugin.php:157
+msgid "The minimum font size to use."
+msgstr "A legkisebb betûméret, amit használni szeretnél."
+
+#: ..\..\..\_captcha_img.plugin.php:162
+msgid "Max font size"
+msgstr "Maximum betûméret"
+
+#: ..\..\..\_captcha_img.plugin.php:164
+msgid "The maximum font size to use."
+msgstr "A legnagyobb betûméret, amit használni szeretnél."
+
+#: ..\..\..\_captcha_img.plugin.php:169
+msgid "Max rotation"
+msgstr "Maximum forgatás"
+
+#: ..\..\..\_captcha_img.plugin.php:171
+msgid "The maximum degrees a char should be rotated. 25 means a random rotation between -25 and 25."
+msgstr "A maximum forgatás, amivel a betûk el lesznek forgatva. A 25 azt jelenti, hogy véletlenszerûen lesz forgatva -25 és 25 fok között."
+
+#: ..\..\..\_captcha_img.plugin.php:176
+msgid "JPEG quality"
+msgstr "JPEG minõség"
+
+#: ..\..\..\_captcha_img.plugin.php:178
+msgid "JPEG image quality."
+msgstr "JPEG képminõség"
+
+#: ..\..\..\_captcha_img.plugin.php:184
+msgid "Valid characters"
+msgstr "Érvényes karakterek"
+
+#: ..\..\..\_captcha_img.plugin.php:186
+msgid "Valid characters to use in generated images."
+msgstr "Érvényes karakterek a generált képben."
+
+#: ..\..\..\_captcha_img.plugin.php:190
+msgid "Case sensitive"
+msgstr "Kisbetû-nagybetû érzékeny"
+
+#: ..\..\..\_captcha_img.plugin.php:192
+msgid "Use case sensitive keys?"
+msgstr "Kibetû-nagybetû érzékenység használata"
+
+#: ..\..\..\_captcha_img.plugin.php:197
+msgid "Use for"
+msgstr "Használd a következõkhöz:"
+
+#: ..\..\..\_captcha_img.plugin.php:201
+msgid "Use for anonymous"
+msgstr "Használd az anonymous-hoz"
+
+#: ..\..\..\_captcha_img.plugin.php:203
+msgid "Should this plugin be used for anonymous users?"
+msgstr "A plugin használatban lesz az anonymous felhasználóknál?"
+
+#: ..\..\..\_captcha_img.plugin.php:207
+msgid "Use for members"
+msgstr "Használd a tagokhoz"
+
+#: ..\..\..\_captcha_img.plugin.php:209
+msgid "Use this plugin for members of the target blog, if their level is below this."
+msgstr "Használd a plugint a blogok tagjainál, ha a szintjük alacsonyabb, mint ez."
+
+#: ..\..\..\_captcha_img.plugin.php:215
+msgid "Use for registered"
+msgstr "Használd a regisztráltakhoz"
+
+#: ..\..\..\_captcha_img.plugin.php:217
+msgid "Use this plugin for registered users, if their level is below this."
+msgstr "Használd a plugint a regisztrált felhasználóknál, ha a szintjük alacsonyabb, mint ez."
+
+#: ..\..\..\_captcha_img.plugin.php:227
+msgid "Post-process"
+msgstr "Utófeldolgozás"
+
+#: ..\..\..\_captcha_img.plugin.php:229
+msgid "A command to post-process the image."
+msgstr "A parancs, amivel utófeldolgozzuk a képet."
+
+#: ..\..\..\_captcha_img.plugin.php:378
+msgid "You do not seem to come from the intended page!"
+msgstr "Úgy néz ki, hogy nem a megfelelõ lapról jöttél!"
+
+#: ..\..\..\_captcha_img.plugin.php:392
+#, php-format
+msgid "No stored private key has been found. You probably do not have cookies enabled or the timeout of %d minutes has expired."
+msgstr "Nem találom a kulcsot. Talán nincsenek a sütik engedélyezve a böngészõdben, vagy a %d perc idõt túllépted."
+
+#: ..\..\..\_captcha_img.plugin.php:405
+msgid "The entered code does not match the expected one."
+msgstr "A beírt kód nem egyezik a várt kóddal."
+
+#: ..\..\..\_captcha_img.plugin.php:515
+msgid "This is a captcha-picture. It is used to prevent mass-access by robots."
+msgstr "Ez egy captcha-kép, ennek használatával megakadályozzuk a robotok áradatát."
+
+#: ..\..\..\_captcha_img.plugin.php:521
+msgid "Reload"
+msgstr "Újratöltés"
+
+#: ..\..\..\_captcha_img.plugin.php:521
+msgid "Reload image!"
+msgstr "Kép újratöltése!"
+
+#: ..\..\..\_captcha_img.plugin.php:527
+msgid "Please enter the characters from the image above."
+msgstr "Kérlek, add meg a szöveget a fenti képbõl."
+
+#: ..\..\..\_captcha_img.plugin.php:528
+msgid "case insensitive"
+msgstr "nem kisbetû-nagybetû érzékeny"
+
+#: ..\..\..\_captcha_img.plugin.php:528
+msgid "case sensitive"
+msgstr "kisbetû-nagybetû érzékeny"
+
+#: ..\..\..\_captcha_img.plugin.php:533
+#: ..\..\..\_captcha_img.plugin.php:537
+msgid "Captcha"
+msgstr "Captcha"
+
+#: ..\..\..\_captcha_img.plugin.php:542
+msgid "Validate me"
+msgstr "Érvényesít"
+
+# TRANS: %s gets replaced by the reason/hint
+#: ..\..\..\_captcha_img.plugin.php:623
+#: ..\..\..\_captcha_img.plugin.php:627
+#, php-format
+msgid "The captcha code was invalid: %s"
+msgstr "A captcha kód érvénytelen: %s"
+
+#: ..\..\..\_captcha_img.plugin.php:755
+msgid "Display trackback URL"
+msgstr "Trackback URL mutatása"
+
+#: ..\..\..\_captcha_img.plugin.php:784
+msgid "Invalid trackback URL!"
+msgstr "Érvénytelen trackback URL!"
+
+#: ..\..\..\_captcha_img.plugin.php:791
+msgid "Invalid key in trackback URL!"
+msgstr "Érvénytelen kulcs a trackback URL-ben!"
+
+#: ..\..\..\_captcha_img.plugin.php:812
+msgid "Create test image... (please save any changes before)"
+msgstr "Teszt kép készítése... (kérlek, elõször mentsd el az esetleges beállítás változásokat)"
+
+#: ..\..\..\_captcha_img.plugin.php:931
+msgid "A generated image should show up below. The image only gets displayed once - use the test link again for a new try."
+msgstr "Lent a generált képet kellene látnod. A képet csak egyszer mutatjuk - használd a teszt linket, ha újra meg akarod próbálni."
+
+#: ..\..\..\_captcha_img.plugin.php:1370
+msgid "The GD library does not seem to be installed."
+msgstr "Úgy néz ki, hogy a GD library nincs telepítve."
+
+#: ..\..\..\_captcha_img.plugin.php:1374
+msgid "No JPEG support. (Function imagejpeg does not exist)"
+msgstr "Nincs JPEG támogatás. (Az imagejpeg eljárás nem létezik.)"
+
+#: ..\..\..\_captcha_img.plugin.php:1378
+msgid "FreeType library not available. (Function imagettftext does not exist)"
+msgstr "A FreeType library nem érhetõ el. (Az imagettfext eljárás nem létezik.)"
+
+#: ..\..\..\_captcha_img.plugin.php:1428
+#, php-format
+msgid "Fonts folder %s is not readable or does not exist!"
+msgstr "A %s betûkészlet könyvtár nem olvasható, vagy nem létezik!"
+
+#: ..\..\..\_captcha_img.plugin.php:1452
+msgid "No Truetype fonts available!"
+msgstr "Nincsenek TruType betûkészletek megadva!"
+

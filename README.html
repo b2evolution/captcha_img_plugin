@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<title>Captcha image plugin help</title>
+</head>
+
+<body>
+<h1>Captcha Image plugin</h1>
+
+<p id="captcha_img_plugin_short_desc">
+Use generated images to tell humans and spam-bots apart.
+</p>
+
+<p>
+<strong>Additional System Requirements</strong>:
+GD Image and FreeType libraries for PHP
+</p>
+
+
+<h2 id="captcha_img_plugin_long_desc">Detailed Description</h2>
+<p>
+This plugin requires users to enter a string of characters displayed in an image before posting a comment.
+This is designed to reduce automated comment spam by requiring human interaction.
+</p>
+<p>
+While some captchas have been broken by character recognition bots this plugin takes pains to reduce this possibility.
+</p>
+<p>
+Additional security (over some other existing image captcha programs) is provided by: variable character size, rotation and fonts, backgrond noise characters, variable captcha length and support for characters other than A-Z and 0-9.
+</p>
+
+
+<h2 id="captcha_img_plugin_installation">Installation</h3>
+<ol>
+	<li>Copy the <span class="filename">captcha_img_plugin</span> folder into the "plugins" folder of your b2evolution installation.</li>
+	<li>You should have an empty <span class="filename">fonts</span> folder inside of it.</li>
+	<li>Put any number of TrueType fonts inside of the "fonts" folder, these fonts will be randomly selected by the captcha plugin. Fonts MUST end in ".ttf" to be recognized. For free font suggestions please see the <a href="#captcha_img_plugin_add_resources">Additional Resources</a> section.</li>
+	<li>Login to the administrative interface for your blog.</li>
+	<li>Install the "Captcha images" plugin from the Settings::Plug-ins::Available plugins table using the [Install] link.</li>
+	<li>Edit the settings for the "Captcha images" plugin for your personal preferences.
+	For additional information see the <a href="#captcha_img_plugin_settings">Plugin Settings</a> section of this README.</li>
+	<li>Save plugin settings. The Captcha images plugin is now active.</li>
+</ol>
+
+
+<h2 id="captcha_img_plugin_settings">Plugin Settings</h2>
+
+<p id="captcha_img_plugin_TTF_folder">
+<strong>Fonts folder</strong>:
+Path to the folder where captcha fonts are stored relative to the plugin folder.
+<br />
+The fonts therein have to be TrueType fonts (*.ttf).
+</p>
+
+<p id="captcha_img_plugin_timeout_key">
+<strong>Timeout for keys</strong>:
+Each time a captcha is created it can only be used for this many minutes.
+</p>
+
+<p id="captcha_img_plugin_noise">
+<strong>Noise</strong>:
+When on (default) use character noise in the background instead of a grid.
+</p>
+
+<p id="captcha_img_plugin_noisefactor">
+<strong>Noise factor</strong>:
+The length of the captcha multiplied by this number will be used to create background noise.
+Increasing this number creates more background noise.
+</p>
+
+<p id="captcha_img_plugin_minmaxchars">
+<strong>Min chars/Max chars</strong>:
+The captcha will be a random length between these two numbers of characters.
+For a fixed length captcha set both of these the same.
+</p>
+
+<p id="captcha_img_plugin_fontsizes">
+<strong>Font sizes</strong>:
+Each character will use a different font size between the maximum and minimum font sizes specified.
+<br />
+If the maximum and minimum are equal all characters will be that size.
+</p>
+
+<p id="captcha_img_plugin_max_rotation">
+<strong>Max rotation</strong>:
+Each character in the captcha may be rotated up to this number of degrees in either direction.
+</p>
+
+<p id="captcha_img_plugin_validchars">
+<strong>Valid Characters</strong>:
+This is a list of all the characters that can be used in a captcha.
+<br />
+By default it contains a list of ASCII characters that are easily distinguished.
+Characters such as iIlL1!^oO0-_=+ have not been included because they could easily be mistaken for other characters.
+Numbers and extra characters are listed twice to increase the probability they show up in a captcha.
+</p>
+
+<p id="captcha_img_plugin_case_sensitive">
+<strong>Case sensitive</strong>:
+This option is turned off by default so users are more likely to successfully enter the captcha,
+case sensitive captchas are not normally used because they increase end user frustration.
+</p>
+
+
+<h3 id="captcha_img_plugin_use_for">Use for</h3>
+
+<p id="captcha_img_plugin_use_for_anonymous">
+<strong>Use for anonymous</strong>:
+If the user is anonymous (not registered), this setting applies.
+</p>
+<p id="captcha_img_plugin_use_for_members_level_below">
+<strong>Use for members</strong>:
+If the user is a member of the target blog, this setting applies. If his user level is below the one
+you've configured, he has to pass the Captcha. "0" means all members won't have to pass the Captcha.
+</p>
+<p id="captcha_img_plugin_use_for_level_below">
+<strong>Use for registered</strong>:
+If the user is registered, but not a member of the target blog, this setting applies.
+If his user level is below the one you've configured, he has to pass the Captcha.
+"0" means all registered users won't have to pass the Captcha.
+</p>
+
+
+<h3 id="captcha_img_plugin_post_process_cmd">The post-process command</h3>
+
+<p>
+You can define a process that should be run to post-process the generated image. A good
+example would be to use ImageMagick to further "disturb" the image.
+</p>
+
+<p>
+The given command must accept the image data on STDIN and output it to STDOUT. This is normally
+done by giving "-" (without quotes) as filename for input and output. See the example below.
+<br />
+If something is received on STDERR, the post-processing is skipped, leaving the original
+generated image unchanged.
+</p>
+
+<p>
+The following replacements get done before executing the command:
+</p>
+<ul>
+	<li><strong>%rand(X,Y)%</strong> gets replaced by a random number between X and Y.</li>
+	<li><strong>%arand(list|of|strings|which are|seperated|by|pipe)%</strong> gets replaced by a random item from the list.</li>
+	<li><strong>%rgb(bg)%</strong> returns the RGB value of the background (bg) color, e.g. "212,213,214" (without quotes).</li>
+</ul>
+
+<h4>For example:</h4>
+<p>
+<code>
+	/usr/bin/convert -swirl %rand(10,30)% -blur %rand(0,50)% -rotate %rand(0,10)% -wave %rand(1,5)%x%rand(40,120)% -background rgb(%rgb(bg)%) - -
+</code>
+</p>
+
+<p>
+If there are more substitutions needed, please just let me know (to hack them in, while waiting for an update you might want to look at the method post_process_image()).
+</p>
+
+<h4>Reference:</h4>
+<ul>
+	<li><a href="http://www.imagemagick.org/script/convert.php">ImageMagick documentation for "convert"</a></li>
+	<li><a href="http://www.cit.gu.edu.au/~anthony/graphics/imagick6/">Examples of ImageMagick Usage</a></li>
+</ul>
+
+
+<h2 id="captcha_img_plugin_add_resources">Additional Resources</h3>
+
+<p>
+Selecting Fonts: This plugin requires at least one TrueType font file (*.TTF) in the specified fonts folder. While many free fonts are available online it would be best to select fonts which are not difficult for the average person to read. Remember that people will not be able to post comments unless they correctly enter the captcha, so use of a difficult to read font may limit participation.
+</p>
+<p>
+Below you will find a list of sites offering free fonts, remember to unzip (if required) and upload the TTF file to the correct "fonts" folder inside of your "plugins" folder. These fonts may have some use restrictions (no commercial use, etc.) so please make sure your use is allowed.
+</p>
+
+<h3>Free Font Sites:</h4>
+<ul>
+	<li><a href="http://fonts.tom7.com/">http://fonts.tom7.com/</a></li>
+	<li><a href="http://www.astigmatic.com/free_fonts.html">http://www.astigmatic.com/free_fonts.html</a></li>
+	<li><a href="http://www.swank.ca/caffeen/fonts/">http://www.swank.ca/caffeen/fonts/</a></li>
+	<li><a href="http://www.core.nu/freefonts.html">http://www.core.nu/freefonts.html</a></li>
+	<li><a href="http://www.webpagepublicity.com/free-fonts.html">http://www.webpagepublicity.com/free-fonts.html</a></li>
+	<li><a href="http://www.grsites.com/fonts/">http://www.grsites.com/fonts/</a></li>
+	<li><a href="http://moorstation.org/typoasis/designers/steffmann/index.htm">http://moorstation.org/typoasis/designers/steffmann/index.htm</a></li>
+	<li><a href="http://www.typenow.net/">http://www.typenow.net/</a></li>
+</ul>
+
+<h2>Changelog</h2>
+	<h3>Version 2.0.1</h3>
+	<ul>
+		<li>Bugfix release. Add translation for ru_RU.
+	</ul>
+	<h3>Version 2.0</h3>
+	<ul>
+		<li>Compatibility for b2evo 2.0</li>
+		<li>If the user solved the captcha in the preview process, he does not get tested again.</li>
+		<li>Fix for hidden params handling</li>
+		<li>Beautified output/optimized space usage</li>
+		<li>Default plugin priority 20, so that it gets called/asked before the OpenID plugin for example</li>
+		<li>Fixes for "Test..." images, more verbose displaying of errors</li>
+		<li>Added hungarian translation, thanks Imre Balla</li>
+	</ul>
+
+</body>
+</html>

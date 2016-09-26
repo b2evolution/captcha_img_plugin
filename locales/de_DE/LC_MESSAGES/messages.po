@@ -1,0 +1,262 @@
+# Message strings for b2evolution's captcha image plugin (german).
+# Copyright (C) 2006 dAniel hAhler
+# This file is distributed under the same license as the b2evolution package.
+#
+# dAniel hAhler <daniel@thequod.de>, 2006, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: captcha_img_plugin\n"
+"Report-Msgid-Bugs-To: http://daniel.hahler.de/\n"
+"POT-Creation-Date: 2007-09-10 22:20+0200\n"
+"PO-Revision-Date: 2007-09-10 22:18+0200\n"
+"Last-Translator: dAniel hAhler <daniel@thequod.de>\n"
+"Language-Team:  <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ..\..\..\_captcha_img.plugin.php:84
+msgid "Captcha images"
+msgstr "Captcha Bilder"
+
+#: ..\..\..\_captcha_img.plugin.php:85
+msgid "Use generated images to tell humans and robots apart."
+msgstr "Benutze generierte Bilder, um Menschen von Robotern zu unterscheiden."
+
+#: ..\..\..\_captcha_img.plugin.php:102
+msgid "Protect trackback URLs"
+msgstr "Schütze Trackback URLs"
+
+#: ..\..\..\_captcha_img.plugin.php:109
+msgid "Fonts folder"
+msgstr "Schriftartenordner"
+
+#: ..\..\..\_captcha_img.plugin.php:111
+msgid "Path to a folder with TrueType fonts for captcha text, relative to the plugin file."
+msgstr "Pfad zu einem Ordner mit TrueType Schriften für den Captcha-Text, relativ zur Plugindatei."
+
+#: ..\..\..\_captcha_img.plugin.php:115
+msgid "Timeout for keys"
+msgstr "Timeout für Schlüssel"
+
+#: ..\..\..\_captcha_img.plugin.php:117
+msgid "in minutes. When does the generated captcha expire?"
+msgstr "in Minuten. Wann läuft ein generiertes Captcha ab?"
+
+#: ..\..\..\_captcha_img.plugin.php:122
+msgid "Websafe colors"
+msgstr "Websichere Farben"
+
+#: ..\..\..\_captcha_img.plugin.php:124
+msgid "Use web safe colors (only 216 colors)?"
+msgstr "Benutzer websichere Farben (nur 216 Farben)?"
+
+#: ..\..\..\_captcha_img.plugin.php:128
+msgid "Noise"
+msgstr "Lärm"
+
+#: ..\..\..\_captcha_img.plugin.php:130
+msgid "Use background noise characters instead of a grid."
+msgstr "Benutze Hintergrund-\"Lärm\"-Zeichen anstelle eines Gitters."
+
+#: ..\..\..\_captcha_img.plugin.php:134
+msgid "Noise factor"
+msgstr "Lärmfaktor"
+
+#: ..\..\..\_captcha_img.plugin.php:136
+msgid "Noise multiplier (number of characters gets multipled by this to define noise)."
+msgstr "Lärm-Multiplikator (die Anzahl der Buchstaben wird hiermit multipliziert, um den Lärm zu definieren)"
+
+#: ..\..\..\_captcha_img.plugin.php:141
+msgid "Min chars"
+msgstr "Mind. Zeichen"
+
+#: ..\..\..\_captcha_img.plugin.php:143
+msgid "The minimum number of characters to use."
+msgstr "Die Mindestanzahl an zu benutzenden Buchstaben."
+
+#: ..\..\..\_captcha_img.plugin.php:148
+msgid "Max chars"
+msgstr "Max. Zeichen"
+
+#: ..\..\..\_captcha_img.plugin.php:150
+msgid "The maximum number of characters to use."
+msgstr "Die maximale Anzahl an zu benutzenden Zeichen."
+
+#: ..\..\..\_captcha_img.plugin.php:155
+msgid "Min font size"
+msgstr "Mind. Schriftgröße"
+
+#: ..\..\..\_captcha_img.plugin.php:157
+msgid "The minimum font size to use."
+msgstr "Die zu benutzende Mindestschriftgröße"
+
+#: ..\..\..\_captcha_img.plugin.php:162
+msgid "Max font size"
+msgstr "Max. Schriftgröße"
+
+#: ..\..\..\_captcha_img.plugin.php:164
+msgid "The maximum font size to use."
+msgstr "Die maximal zu benutzende Schriftgröße."
+
+#: ..\..\..\_captcha_img.plugin.php:169
+msgid "Max rotation"
+msgstr "Max. Drehung"
+
+#: ..\..\..\_captcha_img.plugin.php:171
+msgid "The maximum degrees a char should be rotated. 25 means a random rotation between -25 and 25."
+msgstr "Der größte Winkel in dem ein Zeichen gedreht werden soll. 25 bedeutet eine zufällige Rotation zwischen -25 und 25."
+
+#: ..\..\..\_captcha_img.plugin.php:176
+msgid "JPEG quality"
+msgstr "JPEG Qualität"
+
+#: ..\..\..\_captcha_img.plugin.php:178
+msgid "JPEG image quality."
+msgstr "JPEG Bildqualität."
+
+#: ..\..\..\_captcha_img.plugin.php:184
+msgid "Valid characters"
+msgstr "Gültige Buchstaben"
+
+#: ..\..\..\_captcha_img.plugin.php:186
+msgid "Valid characters to use in generated images."
+msgstr "Gültige Buchstaben, die in generierten Bildern verwendet werden."
+
+#: ..\..\..\_captcha_img.plugin.php:190
+msgid "Case sensitive"
+msgstr "Groß-/Kleinschreibung"
+
+#: ..\..\..\_captcha_img.plugin.php:192
+msgid "Use case sensitive keys?"
+msgstr "Unterscheide zwischen Groß- und Kleinschreibung?"
+
+#: ..\..\..\_captcha_img.plugin.php:197
+msgid "Use for"
+msgstr "Benutzen für"
+
+#: ..\..\..\_captcha_img.plugin.php:201
+msgid "Use for anonymous"
+msgstr "Für Besucher benutzen"
+
+#: ..\..\..\_captcha_img.plugin.php:203
+msgid "Should this plugin be used for anonymous users?"
+msgstr "Soll dieses Plugin für anonyme Besucher benutzt werden?"
+
+#: ..\..\..\_captcha_img.plugin.php:207
+msgid "Use for members"
+msgstr "Benutze für Mitglieder"
+
+#: ..\..\..\_captcha_img.plugin.php:209
+msgid "Use this plugin for members of the target blog, if their level is below this."
+msgstr "Benutze das Plugin für Mitglieder des Zielblogs, wenn ihr Level unterhalb dieses Wertes ist."
+
+#: ..\..\..\_captcha_img.plugin.php:215
+msgid "Use for registered"
+msgstr "Benutze für Registrierte"
+
+#: ..\..\..\_captcha_img.plugin.php:217
+msgid "Use this plugin for registered users, if their level is below this."
+msgstr "Benutze das Plugin für registrierte Benutzer, wenn ihr Level unterhalb dieses Wertes ist."
+
+#: ..\..\..\_captcha_img.plugin.php:227
+msgid "Post-process"
+msgstr "Nachbearbeitung"
+
+#: ..\..\..\_captcha_img.plugin.php:229
+msgid "A command to post-process the image."
+msgstr "Ein Befehl, um das Bild nachzubearbeiten."
+
+#: ..\..\..\_captcha_img.plugin.php:378
+msgid "You do not seem to come from the intended page!"
+msgstr "Du scheinst nicht von der angedachten Seite zu kommen!"
+
+#: ..\..\..\_captcha_img.plugin.php:392
+#, php-format
+msgid "No stored private key has been found. You probably do not have cookies enabled or the timeout of %d minutes has expired."
+msgstr "Es wurde kein privater Schlüssel gefunden. Du hast wahrscheinlich Cookies ausgeschaltet oder der Timeout von %d Minuten ist abgelaufen."
+
+#: ..\..\..\_captcha_img.plugin.php:405
+msgid "The entered code does not match the expected one."
+msgstr "Der eingegebene Code entspricht nicht dem erwarteten."
+
+#: ..\..\..\_captcha_img.plugin.php:515
+msgid "This is a captcha-picture. It is used to prevent mass-access by robots."
+msgstr "Dies ist ein Captcha Bild. Es wird benutzt, um Massenzugriffe von Robotern zu verhindern."
+
+#: ..\..\..\_captcha_img.plugin.php:521
+msgid "Reload"
+msgstr "Neu laden"
+
+#: ..\..\..\_captcha_img.plugin.php:521
+msgid "Reload image!"
+msgstr "Lade das Bild neu!"
+
+#: ..\..\..\_captcha_img.plugin.php:527
+msgid "Please enter the characters from the image above."
+msgstr "Bitte gib die Zeichen des obigen Bildes ein."
+
+#: ..\..\..\_captcha_img.plugin.php:528
+msgid "case insensitive"
+msgstr "Groß/Kleinschreibung ist unwichtig"
+
+#: ..\..\..\_captcha_img.plugin.php:528
+msgid "case sensitive"
+msgstr "Groß/Kleinschreibung ist wichtig"
+
+#: ..\..\..\_captcha_img.plugin.php:533 ..\..\..\_captcha_img.plugin.php:537
+msgid "Captcha"
+msgstr "Captcha"
+
+#: ..\..\..\_captcha_img.plugin.php:542
+msgid "Validate me"
+msgstr "Validiere mich"
+
+# TRANS: %s gets replaced by the reason/hint
+#: ..\..\..\_captcha_img.plugin.php:623 ..\..\..\_captcha_img.plugin.php:627
+#, php-format
+msgid "The captcha code was invalid: %s"
+msgstr "Der Captcha Code war ungültig: %s"
+
+#: ..\..\..\_captcha_img.plugin.php:755
+msgid "Display trackback URL"
+msgstr "Zeige Trackback URL"
+
+#: ..\..\..\_captcha_img.plugin.php:784
+msgid "Invalid trackback URL!"
+msgstr "Ungültige Trackback URL!"
+
+#: ..\..\..\_captcha_img.plugin.php:791
+msgid "Invalid key in trackback URL!"
+msgstr "Ungültiger Schlüssel in Trackback URL!"
+
+#: ..\..\..\_captcha_img.plugin.php:812
+msgid "Create test image... (please save any changes before)"
+msgstr "Erstelle Testbild... (bitte vorher eventuelle Änderungen speichern)"
+
+#: ..\..\..\_captcha_img.plugin.php:931
+msgid "A generated image should show up below. The image only gets displayed once - use the test link again for a new try."
+msgstr "Ein generiertes Bild sollte unten erscheinen. Das Bild wird nur einmal angezeigt - benutze den Testlink erneut für einen neuen Versuch."
+
+#: ..\..\..\_captcha_img.plugin.php:1370
+msgid "The GD library does not seem to be installed."
+msgstr "Die GD-Bibliothek scheint nicht installiert zu sein."
+
+#: ..\..\..\_captcha_img.plugin.php:1374
+msgid "No JPEG support. (Function imagejpeg does not exist)"
+msgstr "Keine JPEG-Unterstützung. (Funktion imagejpeg existiert nicht)"
+
+#: ..\..\..\_captcha_img.plugin.php:1378
+msgid "FreeType library not available. (Function imagettftext does not exist)"
+msgstr "FreeType-Bibliothek ist nicht verfügbar. (Funktion imagettftext existiert nicht)"
+
+#: ..\..\..\_captcha_img.plugin.php:1428
+#, php-format
+msgid "Fonts folder %s is not readable or does not exist!"
+msgstr "Der Schriftenordner %s ist nicht lesbar oder existiert nicht!"
+
+#: ..\..\..\_captcha_img.plugin.php:1452
+msgid "No Truetype fonts available!"
+msgstr "Es sind keine TrueType-Schriften verfügbar!"
