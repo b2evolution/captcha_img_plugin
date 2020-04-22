@@ -81,34 +81,6 @@ If his user level is below the one you've configured, he has to pass the Captcha
 "0" means all registered users won't have to pass the Captcha.
 
 
-### The post-process command
-
-You can define a process that should be run to post-process the generated image. A good
-example would be to use ImageMagick to further "disturb" the image.
-
-The given command must accept the image data on STDIN and output it to STDOUT. This is normally
-done by giving "-" (without quotes) as filename for input and output. See the example below.
-If something is received on STDERR, the post-processing is skipped, leaving the original
-generated image unchanged.
-
-The following replacements get done before executing the command:
-- `%rand(X,Y)%` gets replaced by a random number between X and Y.
-- `%arand(list|of|strings|which are|seperated|by|pipe)%` gets replaced by a random item from the list.
-- `%rgb(bg)%` returns the RGB value of the background (bg) color, e.g. "212,213,214" (without quotes).
-
-#### For example:
-
-```
-	/usr/bin/convert -swirl %rand(10,30)% -blur %rand(0,50)% -rotate %rand(0,10)% -wave %rand(1,5)%x%rand(40,120)% -background rgb(%rgb(bg)%) - -
-```
-
-If there are more substitutions needed, please just let me know (to hack them in, while waiting for an update you might want to look at the method post_process_image()).
-
-#### Reference:
-- [ImageMagick documentation for "convert"](http://www.imagemagick.org/script/convert.php)
-- [Examples of ImageMagick Usage](http://www.cit.gu.edu.au/~anthony/graphics/imagick6/)
-
-
 ### Additional Resources
 
 Selecting Fonts: This plugin requires at least one TrueType font file (*.TTF) in the specified fonts folder. While many free fonts are available online it would be best to select fonts which are not difficult for the average person to read. Remember that people will not be able to post comments unless they correctly enter the captcha, so use of a difficult to read font may limit participation.

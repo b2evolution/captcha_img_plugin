@@ -61,7 +61,7 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
  */
 class captcha_img_plugin extends Plugin
 {
-	var $version = '2.0.4';
+	var $version = '2.0.5';
 	var $group = 'antispam';
 
 	/**
@@ -218,16 +218,6 @@ class captcha_img_plugin extends Plugin
 					'valid_range' => array( 'min'=>0, 'max'=>11),
 				),
 				array( 'layout' => 'end_fieldset' ),
-
-				array( 'layout' => 'separator' ),
-
-				'post_process_cmd' => array(
-					'label' => $this->T_('Post-process'),
-					'defaultvalue' => '',
-					'note' => $this->T_('A command to post-process the image.'),
-					'size' => 50,
-					'type' => 'textarea',
-				),
 			);
 	}
 
@@ -332,7 +322,6 @@ class captcha_img_plugin extends Plugin
 		}
 
 		// TODO: min-max ordering, ...
-		// TODO: post-process
 
 		if( $error )
 		{
@@ -516,11 +505,8 @@ class captcha_img_plugin extends Plugin
 
 		$img_src = $this->get_htsrv_url('display_captcha', array('pubkey'=>$this->public_key));
 		$captcha_img = '<img src="'.$img_src.'"  alt="'.$this->T_('This is a captcha-picture. It is used to prevent mass-access by robots.').'" id="'.$prefix.'_'.$this->public_key.'"';
-		if( ! $this->post_process_alters_dimensions() )
-		{
-			list($width, $height) = $this->get_image_dimensions($this->private_key);
-			$captcha_img .= ' width="'.$width.'" height="'.$height.'"';
-		}
+		list($width, $height) = $this->get_image_dimensions($this->private_key);
+		$captcha_img .= ' width="'.$width.'" height="'.$height.'"';
 		$captcha_img .= ' />';
 
 		// Javascript link to reload the image:
@@ -947,11 +933,8 @@ class captcha_img_plugin extends Plugin
 						'test_captcha_valid' => $params['test_captcha_valid'],
 						'test_output_ID' => $output_ID ) )
 						.'" alt="Captcha test image" style="border:2px solid black; padding:10px;" ';
-					if( ! $this->post_process_alters_dimensions() )
-					{
-						list($width, $height) = $this->get_image_dimensions($private_key);
-						echo ' width="'.$width.'" height="'.$height.'"';
-					}
+					list($width, $height) = $this->get_image_dimensions($private_key);
+					echo ' width="'.$width.'" height="'.$height.'"';
 					echo ' />';
 					?>
 				</div>
@@ -1161,7 +1144,6 @@ class captcha_img_plugin extends Plugin
 
 		// Set Backgroundcolor
 		$this->random_color(224, 255);
-		$this->bg_color = array( $this->rand_R, $this->rand_G, $this->rand_B ); // used for substitution in post_process_image()
 		$back =  imagecolorallocate($image, $this->rand_R, $this->rand_G, $this->rand_B);
 		imagefilledrectangle($image,0,0,$this->lx,$this->ly,$back);
 		$this->debug_log( 'We allocate one color for Background: ('.$this->rand_R.'-'.$this->rand_G.'-'.$this->rand_B.')' );
@@ -1236,98 +1218,7 @@ class captcha_img_plugin extends Plugin
 		ob_end_clean();
 		ImageDestroy($image);
 
-		$this->post_process_image( $image_data );
-
 		return $image_data;
-	}
-
-
-	/**
-	 * Post process the image, if a post_process_cmd is given.
-	 *
-	 * @param string (binary) Image to post-process (by reference)
-	 * @return string In case of error string, NULL otherwise.
-	 */
-	function post_process_image( & $image )
-	{
-		$post_process_cmd = $this->Settings->get( 'post_process_cmd' );
-		if( ! strlen($post_process_cmd) )
-		{
-			return;
-		}
-		$post_process_cmd = preg_replace_callback(
-			array(
-				'~%(rand)\(\s*(\d+),(\d+)\)%~',  # rand(min,max)
-				'~%(arand)\(([^)]+)\)%~',        # arand(list,of,items,to,randomly,choose,from)
-				'~%(rgb)\((bg)\)%~',             # rgb(bg): return background color as "R,G,B"
-				),
-				create_function( '$match', '
-					switch( $match[1] )
-					{
-						case \'rand\':
-							return mt_rand( $match[2], $match[3] );
-
-						case \'arand\':
-							$options = preg_split( \'~|~\', $match[2] );
-							return $options[array_rand($options)];
-
-						case \'rgb\':
-							switch( $match[2] )
-							{
-								case \'bg\':
-									return \''.implode( ',', $this->bg_color ).'\';
-							}
-					}' ),
-				$post_process_cmd );
-
-		$this->debug_log( 'Post-process cmd: '.$post_process_cmd );
-
-		$post_process_cmd = escapeshellcmd( $post_process_cmd );
-
-		$descriptor_spec = array(
-				0 => array('pipe', 'r'), // child reads from stdin
-				1 => array('pipe','w'),  // child writes to stdout
-				2 => array('pipe','w'),  // child writes to stderr
-			);
-		$process = proc_open( $post_process_cmd, $descriptor_spec, $pipes );
-		if( is_resource( $process ) )
-		{
-			fwrite( $pipes[0], $image );
-			fclose( $pipes[0] );
-			$this->debug_log( 'Written '.strlen($image).' bytes to post-process (stdin).' );
-
-			$stderr = '';
-			while( ! feof( $pipes[2] ) )
-			{
-				$stderr .= fread( $pipes[2], 8192 );
-			}
-			$this->debug_log( 'Stderr returned: '.$stderr );
-
-			if( empty($stderr) )
-			{
-				$image = '';
-				while( ! feof( $pipes[1] ) )
-				{
-					$image .= fread( $pipes[1], 8192 );
-				}
-				fclose( $pipes[1] );
-				$this->debug_log( 'Read '.strlen($image).' bytes from post-process (stdout).' );
-			}
-			else
-			{
-				$error = 'Post-processing error: '.$stderr;
-				$this->debug_log( $error );
-				return $error;
-			}
-		}
-		else
-		{
-			$error = 'Post-process did not return valid resource!';
-			$this->debug_log( $error );
-			return $error;
-		}
-
-		#var_dump( $stdin, $pipes, $image );
 	}
 
 
@@ -1497,17 +1388,6 @@ class captcha_img_plugin extends Plugin
 
 		$loaded[$use_folder]['TTF_RANGE'] = $this->TTF_RANGE;
 		return $loaded[$use_folder]['return'];
-	}
-
-
-	/**
-	 * Do we use post-processing for images?
-	 * @todo Make this a setting!
-	 * @return bool
-	 */
-	function post_process_alters_dimensions()
-	{
-		return strlen($this->Settings->get('post_process_cmd'));
 	}
 }
 
